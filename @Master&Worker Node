@@ -65,6 +65,19 @@ sudo swapoff -a
 
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
+sudo -i
+
+containerd config default > /etc/containerd/config.toml
+
+nano /etc/containerd/config.toml
+
+#chnage the value of SystemdCgroup from false to true.
+#SystemdCgroup = true
+
+systemctl restart containerd
+
+exit
+
 sudo apt-get update
 
 sudo apt-get install -y apt-transport-https ca-certificates curl

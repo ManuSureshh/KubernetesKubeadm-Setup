@@ -85,6 +85,7 @@ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 sudo containerd config default | sudo tee /etc/containerd/config.toml
 
 # Modify the config.toml to use systemd as the cgroup driver
+# We are editing the /etc/containerd/config.toml file and making changes. The chnages is SystemdCgroup state from false to true
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 
 # Restart containerd to apply changes
